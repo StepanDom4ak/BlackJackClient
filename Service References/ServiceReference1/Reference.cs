@@ -108,7 +108,7 @@ namespace BlackJackClient.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IMyGame")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IMyGame", CallbackContract=typeof(BlackJackClient.ServiceReference1.IMyGameCallback))]
     public interface IMyGame {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/EnterGame", ReplyAction="http://tempuri.org/IMyGame/EnterGameResponse")]
@@ -116,6 +116,24 @@ namespace BlackJackClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/EnterGame", ReplyAction="http://tempuri.org/IMyGame/EnterGameResponse")]
         System.Threading.Tasks.Task EnterGameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/ExitGame", ReplyAction="http://tempuri.org/IMyGame/ExitGameResponse")]
+        void ExitGame(int playerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/ExitGame", ReplyAction="http://tempuri.org/IMyGame/ExitGameResponse")]
+        System.Threading.Tasks.Task ExitGameAsync(int playerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/Ready", ReplyAction="http://tempuri.org/IMyGame/ReadyResponse")]
+        void Ready(int playerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/Ready", ReplyAction="http://tempuri.org/IMyGame/ReadyResponse")]
+        System.Threading.Tasks.Task ReadyAsync(int playerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/Pass", ReplyAction="http://tempuri.org/IMyGame/PassResponse")]
+        void Pass(int playerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/Pass", ReplyAction="http://tempuri.org/IMyGame/PassResponse")]
+        System.Threading.Tasks.Task PassAsync(int playerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/GiveCard", ReplyAction="http://tempuri.org/IMyGame/GiveCardResponse")]
         BlackJackClient.ServiceReference1.Card GiveCard(int playerId);
@@ -125,30 +143,38 @@ namespace BlackJackClient.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMyGameCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyGame/ShowCard", ReplyAction="http://tempuri.org/IMyGame/ShowCardResponse")]
+        void ShowCard(BlackJackClient.ServiceReference1.Card card);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMyGameChannel : BlackJackClient.ServiceReference1.IMyGame, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MyGameClient : System.ServiceModel.ClientBase<BlackJackClient.ServiceReference1.IMyGame>, BlackJackClient.ServiceReference1.IMyGame {
+    public partial class MyGameClient : System.ServiceModel.DuplexClientBase<BlackJackClient.ServiceReference1.IMyGame>, BlackJackClient.ServiceReference1.IMyGame {
         
-        public MyGameClient() {
+        public MyGameClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public MyGameClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public MyGameClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public MyGameClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MyGameClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MyGameClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MyGameClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MyGameClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public MyGameClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public void EnterGame(string name) {
@@ -157,6 +183,30 @@ namespace BlackJackClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task EnterGameAsync(string name) {
             return base.Channel.EnterGameAsync(name);
+        }
+        
+        public void ExitGame(int playerId) {
+            base.Channel.ExitGame(playerId);
+        }
+        
+        public System.Threading.Tasks.Task ExitGameAsync(int playerId) {
+            return base.Channel.ExitGameAsync(playerId);
+        }
+        
+        public void Ready(int playerId) {
+            base.Channel.Ready(playerId);
+        }
+        
+        public System.Threading.Tasks.Task ReadyAsync(int playerId) {
+            return base.Channel.ReadyAsync(playerId);
+        }
+        
+        public void Pass(int playerId) {
+            base.Channel.Pass(playerId);
+        }
+        
+        public System.Threading.Tasks.Task PassAsync(int playerId) {
+            return base.Channel.PassAsync(playerId);
         }
         
         public BlackJackClient.ServiceReference1.Card GiveCard(int playerId) {

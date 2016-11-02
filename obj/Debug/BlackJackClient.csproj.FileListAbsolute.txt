@@ -11,3 +11,4 @@ C:\Users\stepa\OneDrive\Documents\Visual Studio 2015\Projects\BlackJackClient\Bl
 C:\Users\stepa\OneDrive\Documents\Visual Studio 2015\Projects\BlackJackClient\BlackJackClient\obj\Debug\BlackJackClient.csproj.GenerateResource.Cache
 C:\Users\stepa\OneDrive\Documents\Visual Studio 2015\Projects\BlackJackClient\BlackJackClient\obj\Debug\BlackJackClient.exe
 C:\Users\stepa\OneDrive\Documents\Visual Studio 2015\Projects\BlackJackClient\BlackJackClient\obj\Debug\BlackJackClient.pdb
+C:\Users\stepa\OneDrive\Documents\Visual Studio 2015\Projects\BlackJackClient\BlackJackClient\obj\Debug\BlackJackClient.csprojResolveAssemblyReference.cache

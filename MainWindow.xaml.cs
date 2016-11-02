@@ -21,15 +21,31 @@ namespace BlackJackClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        CallbackHandler ch = new CallbackHandler();
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btReady_Click(object sender, RoutedEventArgs e)
         {
-            MyGameClient cl = new MyGameClient();
-            MessageBox.Show(cl.GiveCard(0).Value.ToString());
+
+        }
+
+        private void btExit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btOneMore_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btPass_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
